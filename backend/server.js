@@ -3,6 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const config = require('./src/config/env');
 const healthRoutes = require('./src/routes/healthRoutes');
+const authRoutes = require('./src/routes/authRoutes');
 const { errorHandler, notFoundHandler } = require('./src/middleware/errorHandler');
 
 const app = express();
@@ -22,6 +23,7 @@ if (config.env !== 'test') {
 
 // Mount Routes
 app.use(config.apiPrefix, healthRoutes);
+app.use(`${config.apiPrefix}/auth`, authRoutes);
 
 // Fallback Handlers
 app.use(notFoundHandler);

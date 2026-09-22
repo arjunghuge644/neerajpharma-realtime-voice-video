@@ -1,0 +1,76 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id             String   @id @default(uuid())
+  email          String   @unique
+  passwordHash   String
+  name           String
+  role           String   @default("PATIENT") // Roles: PATIENT, DOCTOR, ADMIN
+  specialization String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relationships
+  patientAppointments Appointment[] @relation("PatientAppointments")
+  doctorAppointments  Appointment[] @relation("DoctorAppointments")
+  patientCalls        CallSession[] @relation("PatientCalls")
+  doctorCalls         CallSession[] @relation("DoctorCalls")
+
+  @@index([email])
+  @@index([role])
+}
+
+model Appointment {
+  id              String   @id @default(uuid())
+  patientId       String
+  doctorId        String
+  appointmentDate DateTime
+  status          String   @default("SCHEDULED") // SCHEDULED, IN_PROGRESS, COMPLETED, CANCELLED
+  notes           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  patient User        @relation("PatientAppointments", fields: [patientId], references: [id], onDelete: Cascade)
+  doctor  User        @relation("DoctorAppointments", fields: [doctorId], references: [id], onDelete: Cascade)
+  calls   CallSession[]
+
+  @@index([patientId])
+  @@index([doctorId])
+  @@index([appointmentDate])
+  @@index([status])
+}
+
+model CallSession {
+  id            String    @id @default(uuid())
+  appointmentId String
+  patientId     String
+  doctorId      String
+  callType      String    @default("VIDEO") // VOICE, VIDEO
+  status        String    @default("INITIATED") // INITIATED, RINGING, ACCEPTED, ONGOING, COMPLETED, REJECTED, MISSED, FAILED, BUSY
+  roomId        String    @unique
+  startTime     DateTime?
+  endTime       DateTime?
+  duration      Int?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  appointment Appointment @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+  patient     User        @relation("PatientCalls", fields: [patientId], references: [id], onDelete: Cascade)
+  doctor      User        @relation("DoctorCalls", fields: [doctorId], references: [id], onDelete: Cascade)
+
+  @@index([appointmentId])
+  @@index([patientId])
+  @@index([doctorId])
+  @@index([status])
+  @@index([createdAt])
+  @@index([status, createdAt])
+}
