@@ -16,8 +16,9 @@ The Requirement Traceability Matrix ensures 100% coverage and auditability acros
 | **FR-CALL-006** | End Call Execution | `WEBSOCKET_SPECIFICATION.md` | `backend/src/sockets/callLifecycleHandler.js` | `TC-CALL-005` | ✅ |
 | **FR-CALL-007** | Call Timeout (30s) | `WEBSOCKET_SPECIFICATION.md` | `backend/src/sockets/callLifecycleHandler.js` | `TC-CALL-006` | ✅ |
 
-| **FR-CALL-008** | Socket Reconnection | `WEBSOCKET_SPECIFICATION.md` | `server/src/sockets/connectionHandler.js` | `TC-CALL-007` | ⬜ |
-| **FR-CALL-009** | Session Duration Calc | `DATABASE_DESIGN.md` | `server/src/services/callService.js` | `TC-CALL-005` | ⬜ |
+| **FR-CALL-008** | Socket Reconnection | `WEBSOCKET_SPECIFICATION.md` | `backend/src/sockets/index.js` | `TC-CALL-007` | ✅ |
+| **FR-CALL-009** | Session Duration Calc | `DATABASE_DESIGN.md` | `backend/src/services/callService.js` | `TC-CALL-005` | ✅ |
+
 | **FR-AUTH-001** | JWT Authentication | `SECURITY_DESIGN.md` | `backend/src/middleware/authMiddleware.js` | `TC-POSTMAN-009` | ✅ |
 | **FR-AUTH-002** | Role-Based Auth (RBAC)| `SECURITY_DESIGN.md` | `backend/src/middleware/authMiddleware.js` | `TC-POSTMAN-012` | ✅ |
 | **FR-AUTH-003** | Appointment Gate | `SECURITY_DESIGN.md` | `backend/src/services/appointmentService.js` | `TC-POSTMAN-013` | ✅ |

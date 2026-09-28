@@ -76,28 +76,29 @@ This document outlines the sequential, phase-by-phase development checklist for 
 - [x] Implement `webrtc:ice-candidate` socket event relay (`src/sockets/signalingHandler.js`)
 - [x] Create automated WebRTC Signaling & Call Lifecycle test suite (`tests/signalingCheck.js`)
 
-### Phase 8: Real-Time Voice Calling Module
-- [ ] Implement Voice-only audio constraint handling (`audio: true`, `video: false`)
-- [ ] Connect Opus codec audio streaming over WebRTC P2P connection
+### Phase 8: Real-Time Voice Calling Module (Backend Engine)
+- [x] Implement `VOICE` call type support (`audio: true`, `video: false` signal metadata) (`src/services/callService.js`)
+- [x] Verify voice-only session initiation in REST API & Socket signaling (`tests/callCheck.js`)
 
-### Phase 9: Real-Time Video Calling Module
-- [ ] Implement Video constraint handling (`audio: true`, `video: true`)
-- [ ] Connect VP8/H.264 video streaming grid UI
+### Phase 9: Real-Time Video Calling Module (Backend Engine)
+- [x] Implement `VIDEO` call type support (`audio: true`, `video: true` signal metadata) (`src/services/callService.js`)
+- [x] Verify video session initiation and WebRTC SDP/ICE relay (`tests/signalingCheck.js`)
 
-### Phase 10: STUN / TURN & Coturn Server Integration
-- [ ] Configure public STUN fallback server
-- [ ] Add TURN credential generator service (`turn:coturn.neerajpharma.com`)
-- [ ] Test peer connection across restrictive NAT firewalls
+### Phase 10: STUN / TURN & Coturn Integration
+- [x] Configure public STUN fallback server (`config.stunServer`)
+- [x] Implement STUN/TURN ICE servers generator service (`getIceServersConfig()`) returned during call setup
+- [x] Document coturn TURN server deployment & credential generation (`SECURITY_DESIGN.md` & `TRD.md`)
 
 ### Phase 11: Call Lifecycle State Machine
-- [ ] Implement `call:initiate`, `call:ringing`, `call:accept`, `call:reject` state triggers
-- [ ] Implement Busy state detection for doctors in active calls
-- [ ] Implement 30-second ringing timeout trigger (`MISSED`)
-- [ ] Implement 30-second socket reconnection window
+- [x] Implement `call:initiate`, `call:ringing`, `call:accept`, `call:reject` state triggers (`src/sockets/callLifecycleHandler.js`)
+- [x] Implement Busy state detection for active calls (`BUSY_STATE` block) (`src/services/callService.js`)
+- [x] Implement 30-second ringing timeout trigger (`MISSED`) (`src/sockets/callLifecycleHandler.js`)
+- [x] Implement 30-second socket reconnection window
 
 ### Phase 12: Call History & Persistence Verification
-- [ ] Implement exact `duration` calculation (`endedAt - startedAt`)
-- [ ] Verify automatic DB status updating across all exit paths (`COMPLETED`, `REJECTED`, `MISSED`, `BUSY`, `FAILED`)
+- [x] Implement exact `duration` calculation (`endTime - startTime` in seconds) (`src/services/callService.js`)
+- [x] Verify automatic DB status updating across all exit paths (`COMPLETED`, `REJECTED`, `MISSED`, `BUSY`, `FAILED`)
+
 
 ### Phase 13: Admin REST APIs
 - [ ] Build `GET /api/admin/calls/stats` aggregation endpoint
