@@ -5,6 +5,7 @@ const config = require('./src/config/env');
 const healthRoutes = require('./src/routes/healthRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 const appointmentRoutes = require('./src/routes/appointmentRoutes');
+const callRoutes = require('./src/routes/callRoutes');
 const { errorHandler, notFoundHandler } = require('./src/middleware/errorHandler');
 
 const app = express();
@@ -26,6 +27,7 @@ if (config.env !== 'test') {
 app.use(config.apiPrefix, healthRoutes);
 app.use(`${config.apiPrefix}/auth`, authRoutes);
 app.use(`${config.apiPrefix}/appointments`, appointmentRoutes);
+app.use(`${config.apiPrefix}/calls`, callRoutes);
 
 // Fallback Handlers
 app.use(notFoundHandler);

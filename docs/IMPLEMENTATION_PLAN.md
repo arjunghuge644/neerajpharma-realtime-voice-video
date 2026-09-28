@@ -53,9 +53,11 @@ This document outlines the sequential, phase-by-phase development checklist for 
 - [x] Create automated Appointments test suite (`tests/appointmentCheck.js`)
 
 ### Phase 5: Call REST APIs & Session Tracking
-- [ ] Build `POST /api/calls/initiate` REST endpoint
-- [ ] Build `POST /api/calls/:id/end` REST endpoint
-- [ ] Build `GET /api/calls/history` user call logs endpoint
+- [x] Build `POST /api/calls` REST endpoint for initiating voice/video sessions
+- [x] Build `POST /api/calls/:id/end` REST endpoint for ending active call sessions
+- [x] Build `GET /api/calls/history` and `GET /api/calls` user-scoped history endpoints
+- [x] Build `GET /api/calls/:id` single call detail inspection endpoint
+- [x] Create automated Call REST API test suite (`tests/callCheck.js`)
 
 ### Phase 6: Socket.IO Server Setup & Auth
 - [ ] Initialize Socket.IO server wrapped over HTTP server
