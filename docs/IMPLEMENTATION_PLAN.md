@@ -23,28 +23,34 @@ This document outlines the sequential, phase-by-phase development checklist for 
 ---
 
 ### Phase 1: Project & Server Core Setup
-- [ ] Initialize Express server in `server/src/index.js`
-- [ ] Configure environment variables handler (`dotenv`)
-- [ ] Implement central error handling middleware
-- [ ] Set up CORS policies and HTTP logging (`morgan`)
+- [x] Initialize Express server in `backend/server.js`
+- [x] Configure environment variables handler (`src/config/env.js`)
+- [x] Implement central error handling middleware (`src/middleware/errorHandler.js`)
+- [x] Set up CORS policies, JSON parsing, and HTTP logging (`morgan`)
+- [x] Implement health check endpoint (`GET /api/health`)
 
 ### Phase 2: Database & Prisma ORM Setup
-- [ ] Configure PostgreSQL database connection in `.env`
-- [ ] Write Prisma Schema (`schema.prisma`) for `User`, `Appointment`, `CallSession`
-- [ ] Run initial database migration (`npx prisma migrate dev`)
-- [ ] Seed database with initial Patient, Doctor, and Admin test accounts
+- [x] Configure database connection string in `.env`
+- [x] Write Prisma Schema (`schema.prisma`) for `User`, `Appointment`, `CallSession`
+- [x] Run database schema sync (`npx prisma db push`) & client generation
+- [x] Seed database with initial Patient, Doctor, and Admin test accounts (`prisma/seed.js`)
 
 ### Phase 3: Authentication & Security Core
-- [ ] Implement bcrypt password hashing utilities
-- [ ] Create JWT issuing and token verification middleware
-- [ ] Build `POST /api/auth/register` controller & route
-- [ ] Build `POST /api/auth/login` controller & route
-- [ ] Build `GET /api/auth/me` protected route
+- [x] Implement bcrypt password hashing utilities
+- [x] Create JWT issuing and token verification utilities (`src/utils/jwt.js`)
+- [x] Implement authentication middleware (`authenticate`) & RBAC (`authorizeRole`)
+- [x] Build `POST /api/auth/register` controller & route
+- [x] Build `POST /api/auth/login` controller & route
+- [x] Build `GET /api/auth/me` protected route
+- [x] Create automated Auth test suite (`tests/authCheck.js`)
+
 
 ### Phase 4: Appointments Management Module
-- [ ] Build `POST /api/appointments` endpoint
-- [ ] Build `GET /api/appointments` endpoint with user scoping
-- [ ] Add appointment time and participant validation service
+- [x] Build `POST /api/appointments` endpoint
+- [x] Build `GET /api/appointments` endpoint with user scoping
+- [x] Build `GET /api/appointments/:id` endpoint with RBAC
+- [x] Add appointment time and participant validation service (`validateAppointmentForCall`)
+- [x] Create automated Appointments test suite (`tests/appointmentCheck.js`)
 
 ### Phase 5: Call REST APIs & Session Tracking
 - [ ] Build `POST /api/calls/initiate` REST endpoint
