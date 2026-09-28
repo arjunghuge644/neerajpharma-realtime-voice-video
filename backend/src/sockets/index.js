@@ -2,6 +2,8 @@ const { Server } = require('socket.io');
 const config = require('../config/env');
 const socketAuthMiddleware = require('./authMiddleware');
 const { joinUserRoom, joinCallRoom, leaveCallRoom } = require('./roomManager');
+const registerCallLifecycleHandlers = require('./callLifecycleHandler');
+const registerSignalingHandlers = require('./signalingHandler');
 
 let io = null;
 
@@ -27,6 +29,10 @@ const initSocketServer = (httpServer) => {
 
     // Automatically join user to personal notification room
     joinUserRoom(socket);
+
+    // Register Call Lifecycle & WebRTC Signaling Event Handlers
+    registerCallLifecycleHandlers(io, socket);
+    registerSignalingHandlers(io, socket);
 
     // Handle joining protected call room
     socket.on('room:join', async (data, callback) => {
@@ -72,6 +78,7 @@ const initSocketServer = (httpServer) => {
 
   return io;
 };
+
 
 /**
  * Get active Socket.IO server instance

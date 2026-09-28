@@ -8,13 +8,14 @@ The Requirement Traceability Matrix ensures 100% coverage and auditability acros
 
 | Requirement ID | SRS Requirement Description | Design Document | Code Module / Target | Test Case ID | Status |
 | :--- | :--- | :--- | :--- | :--- | :---: |
-| **FR-CALL-001** | Initiate Voice Call | `WEBSOCKET_SPECIFICATION.md` | `server/src/sockets/callHandler.js` | `TC-CALL-001` | ⬜ |
-| **FR-CALL-002** | Initiate Video Call | `WEBSOCKET_SPECIFICATION.md` | `server/src/sockets/callHandler.js` | `TC-CALL-002` | ⬜ |
-| **FR-CALL-003** | Accept Incoming Call | `WEBSOCKET_SPECIFICATION.md` | `server/src/sockets/callHandler.js` | `TC-CALL-002` | ⬜ |
-| **FR-CALL-004** | Reject Incoming Call | `WEBSOCKET_SPECIFICATION.md` | `server/src/sockets/callHandler.js` | `TC-CALL-003` | ⬜ |
-| **FR-CALL-005** | Busy State Detection | `WEBSOCKET_SPECIFICATION.md` | `server/src/services/callService.js` | `TC-CALL-004` | ⬜ |
-| **FR-CALL-006** | End Call Execution | `WEBSOCKET_SPECIFICATION.md` | `server/src/sockets/callHandler.js` | `TC-CALL-005` | ⬜ |
-| **FR-CALL-007** | Call Timeout (30s) | `WEBSOCKET_SPECIFICATION.md` | `server/src/services/callService.js` | `TC-CALL-006` | ⬜ |
+| **FR-CALL-001** | Initiate Voice Call | `WEBSOCKET_SPECIFICATION.md` | `backend/src/sockets/callLifecycleHandler.js` | `TC-CALL-001` | ✅ |
+| **FR-CALL-002** | Initiate Video Call | `WEBSOCKET_SPECIFICATION.md` | `backend/src/sockets/callLifecycleHandler.js` | `TC-CALL-002` | ✅ |
+| **FR-CALL-003** | Accept Incoming Call | `WEBSOCKET_SPECIFICATION.md` | `backend/src/sockets/callLifecycleHandler.js` | `TC-CALL-002` | ✅ |
+| **FR-CALL-004** | Reject Incoming Call | `WEBSOCKET_SPECIFICATION.md` | `backend/src/sockets/callLifecycleHandler.js` | `TC-CALL-003` | ✅ |
+| **FR-CALL-005** | Busy State Detection | `WEBSOCKET_SPECIFICATION.md` | `backend/src/services/callService.js` | `TC-CALL-004` | ✅ |
+| **FR-CALL-006** | End Call Execution | `WEBSOCKET_SPECIFICATION.md` | `backend/src/sockets/callLifecycleHandler.js` | `TC-CALL-005` | ✅ |
+| **FR-CALL-007** | Call Timeout (30s) | `WEBSOCKET_SPECIFICATION.md` | `backend/src/sockets/callLifecycleHandler.js` | `TC-CALL-006` | ✅ |
+
 | **FR-CALL-008** | Socket Reconnection | `WEBSOCKET_SPECIFICATION.md` | `server/src/sockets/connectionHandler.js` | `TC-CALL-007` | ⬜ |
 | **FR-CALL-009** | Session Duration Calc | `DATABASE_DESIGN.md` | `server/src/services/callService.js` | `TC-CALL-005` | ⬜ |
 | **FR-AUTH-001** | JWT Authentication | `SECURITY_DESIGN.md` | `backend/src/middleware/authMiddleware.js` | `TC-POSTMAN-009` | ✅ |

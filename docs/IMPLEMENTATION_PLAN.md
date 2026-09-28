@@ -65,10 +65,16 @@ This document outlines the sequential, phase-by-phase development checklist for 
 - [x] Configure socket room joining (`user_{userId}`, `call_{appointmentId}`) (`src/sockets/roomManager.js`)
 - [x] Create automated Socket.IO integration test suite (`tests/socketCheck.js`)
 
-### Phase 7: WebRTC Signaling Engine
-- [ ] Implement `webrtc:offer` socket event relay
-- [ ] Implement `webrtc:answer` socket event relay
-- [ ] Implement `webrtc:ice-candidate` socket event relay
+### Phase 7: WebRTC Signaling Engine & Call Lifecycle State Machine
+- [x] Implement `call:initiate`, `call:incoming`, `call:ringing` signaling triggers (`src/sockets/callLifecycleHandler.js`)
+- [x] Implement `call:accept`, `call:accepted` acceptance logic (`src/sockets/callLifecycleHandler.js`)
+- [x] Implement `call:reject`, `call:rejected` decline handling (`src/sockets/callLifecycleHandler.js`)
+- [x] Implement `call:end`, `call:ended` call termination and DB status updating (`src/sockets/callLifecycleHandler.js`)
+- [x] Implement 30-second ringing timeout trigger (`MISSED`) (`src/sockets/callLifecycleHandler.js`)
+- [x] Implement `webrtc:offer` socket event relay (`src/sockets/signalingHandler.js`)
+- [x] Implement `webrtc:answer` socket event relay (`src/sockets/signalingHandler.js`)
+- [x] Implement `webrtc:ice-candidate` socket event relay (`src/sockets/signalingHandler.js`)
+- [x] Create automated WebRTC Signaling & Call Lifecycle test suite (`tests/signalingCheck.js`)
 
 ### Phase 8: Real-Time Voice Calling Module
 - [ ] Implement Voice-only audio constraint handling (`audio: true`, `video: false`)
