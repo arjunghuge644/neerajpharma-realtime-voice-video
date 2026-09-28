@@ -60,9 +60,10 @@ This document outlines the sequential, phase-by-phase development checklist for 
 - [x] Create automated Call REST API test suite (`tests/callCheck.js`)
 
 ### Phase 6: Socket.IO Server Setup & Auth
-- [ ] Initialize Socket.IO server wrapped over HTTP server
-- [ ] Implement Socket JWT handshake authentication middleware
-- [ ] Configure socket room joining (`user_{userId}`, `call_{appointmentId}`)
+- [x] Initialize Socket.IO server wrapped over HTTP server (`server.js` & `src/sockets/index.js`)
+- [x] Implement Socket JWT handshake authentication middleware (`src/sockets/authMiddleware.js`)
+- [x] Configure socket room joining (`user_{userId}`, `call_{appointmentId}`) (`src/sockets/roomManager.js`)
+- [x] Create automated Socket.IO integration test suite (`tests/socketCheck.js`)
 
 ### Phase 7: WebRTC Signaling Engine
 - [ ] Implement `webrtc:offer` socket event relay

@@ -20,8 +20,8 @@ The Requirement Traceability Matrix ensures 100% coverage and auditability acros
 | **FR-AUTH-001** | JWT Authentication | `SECURITY_DESIGN.md` | `backend/src/middleware/authMiddleware.js` | `TC-POSTMAN-009` | ✅ |
 | **FR-AUTH-002** | Role-Based Auth (RBAC)| `SECURITY_DESIGN.md` | `backend/src/middleware/authMiddleware.js` | `TC-POSTMAN-012` | ✅ |
 | **FR-AUTH-003** | Appointment Gate | `SECURITY_DESIGN.md` | `backend/src/services/appointmentService.js` | `TC-POSTMAN-013` | ✅ |
-| **FR-AUTH-004** | Socket Handshake Auth | `SECURITY_DESIGN.md` | `backend/src/sockets/authMiddleware.js` | `TC-POSTMAN-010` | ⬜ |
-| **FR-AUTH-005** | Protected Call Rooms | `SECURITY_DESIGN.md` | `backend/src/sockets/roomManager.js` | `TC-POSTMAN-013` | ⬜ |
+| **FR-AUTH-004** | Socket Handshake Auth | `SECURITY_DESIGN.md` | `backend/src/sockets/authMiddleware.js` | `TC-POSTMAN-010` | ✅ |
+| **FR-AUTH-005** | Protected Call Rooms | `SECURITY_DESIGN.md` | `backend/src/sockets/roomManager.js` | `TC-POSTMAN-013` | ✅ |
 | **FR-DB-001** | Store Patient Account | `DATABASE_DESIGN.md` | `backend/prisma/schema.prisma` | `TC-POSTMAN-001` | ✅ |
 | **FR-DB-002** | Store Doctor Account | `DATABASE_DESIGN.md` | `backend/prisma/schema.prisma` | `TC-POSTMAN-002` | ✅ |
 | **FR-DB-003** | Store Appointment Data| `DATABASE_DESIGN.md` | `backend/prisma/schema.prisma` | `TC-POSTMAN-003` | ✅ |

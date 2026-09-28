@@ -1,3 +1,4 @@
+const http = require('http');
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
@@ -7,8 +8,10 @@ const authRoutes = require('./src/routes/authRoutes');
 const appointmentRoutes = require('./src/routes/appointmentRoutes');
 const callRoutes = require('./src/routes/callRoutes');
 const { errorHandler, notFoundHandler } = require('./src/middleware/errorHandler');
+const { initSocketServer } = require('./src/sockets');
 
 const app = express();
+const server = http.createServer(app);
 
 // Global Middlewares
 app.use(cors({
@@ -33,11 +36,15 @@ app.use(`${config.apiPrefix}/calls`, callRoutes);
 app.use(notFoundHandler);
 app.use(errorHandler);
 
+// Initialize Socket.IO engine
+const io = initSocketServer(server);
+
 // Start Server if executing directly
 if (require.main === module) {
-  const server = app.listen(config.port, () => {
+  server.listen(config.port, () => {
     console.log(`==================================================`);
     console.log(`🚀 NeerajPharma Backend Server Running on Port ${config.port}`);
+    console.log(`⚡ Socket.IO Engine Attached & Authenticated`);
     console.log(`🌐 Environment: ${config.env}`);
     console.log(`🔗 Health Check: http://localhost:${config.port}${config.apiPrefix}/health`);
     console.log(`==================================================`);
@@ -49,3 +56,7 @@ if (require.main === module) {
 }
 
 module.exports = app;
+module.exports.app = app;
+module.exports.server = server;
+module.exports.io = io;
+
