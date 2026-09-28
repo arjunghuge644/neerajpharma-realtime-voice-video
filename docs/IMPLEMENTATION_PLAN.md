@@ -100,11 +100,14 @@ This document outlines the sequential, phase-by-phase development checklist for 
 - [x] Verify automatic DB status updating across all exit paths (`COMPLETED`, `REJECTED`, `MISSED`, `BUSY`, `FAILED`)
 
 
-### Phase 13: Admin REST APIs
-- [ ] Build `GET /api/admin/calls/stats` aggregation endpoint
-- [ ] Build `GET /api/admin/calls/active` real-time list endpoint
-- [ ] Build `GET /api/admin/calls` paginated historical logs endpoint
-- [ ] Enforce strict `ADMIN` role middleware protection
+### Phase 13: Admin REST APIs & Monitoring Engine
+- [x] Build `GET /api/admin/calls/stats` aggregate statistics endpoint (`src/services/adminService.js`)
+- [x] Build `GET /api/admin/calls/active` real-time active call monitor endpoint (`src/services/adminService.js`)
+- [x] Build `GET /api/admin/calls` paginated historical logs endpoint (`src/services/adminService.js`)
+- [x] Build `GET /api/admin/calls/:id` detailed session inspection endpoint (`src/services/adminService.js`)
+- [x] Enforce strict `ADMIN` role middleware protection (`src/routes/adminRoutes.js`)
+- [x] Create automated Admin API test suite (`tests/adminCheck.js`)
+
 
 ### Phase 14: Frontend Admin Monitoring Dashboard
 - [ ] Build Admin Dashboard UI view in React

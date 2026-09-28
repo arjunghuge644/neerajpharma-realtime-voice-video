@@ -34,11 +34,12 @@ The Requirement Traceability Matrix ensures 100% coverage and auditability acros
 | **FR-DB-008** | Store Session Room ID | `DATABASE_DESIGN.md` | `backend/prisma/schema.prisma` | `TC-POSTMAN-004` | ✅ |
 | **FR-DB-009** | Audit Timestamps | `DATABASE_DESIGN.md` | `backend/prisma/schema.prisma` | `TC-POSTMAN-001` | ✅ |
 
-| **FR-ADMIN-001**| Aggregate Statistics | `API_SPECIFICATION.md` | `server/src/controllers/adminController.js` | `TC-POSTMAN-005` | ⬜ |
-| **FR-ADMIN-002**| Active Call Monitor | `API_SPECIFICATION.md` | `server/src/controllers/adminController.js` | `TC-POSTMAN-005` | ⬜ |
-| **FR-ADMIN-003**| Historical Call Logs | `API_SPECIFICATION.md` | `server/src/controllers/adminController.js` | `TC-POSTMAN-005` | ⬜ |
-| **FR-ADMIN-004**| Call Detail View | `API_SPECIFICATION.md` | `server/src/controllers/adminController.js` | `TC-POSTMAN-016` | ⬜ |
-| **FR-ADMIN-005**| Admin Security Isolation| `SECURITY_DESIGN.md` | `server/src/middlewares/rbacMiddleware.js` | `TC-POSTMAN-012` | ⬜ |
+| **FR-ADMIN-001**| Aggregate Statistics | `API_SPECIFICATION.md` | `backend/src/controllers/adminController.js` | `TC-POSTMAN-005` | ✅ |
+| **FR-ADMIN-002**| Active Call Monitor | `API_SPECIFICATION.md` | `backend/src/controllers/adminController.js` | `TC-POSTMAN-005` | ✅ |
+| **FR-ADMIN-003**| Historical Call Logs | `API_SPECIFICATION.md` | `backend/src/controllers/adminController.js` | `TC-POSTMAN-005` | ✅ |
+| **FR-ADMIN-004**| Call Detail View | `API_SPECIFICATION.md` | `backend/src/controllers/adminController.js` | `TC-POSTMAN-016` | ✅ |
+| **FR-ADMIN-005**| Admin Security Isolation| `SECURITY_DESIGN.md` | `backend/src/routes/adminRoutes.js` | `TC-POSTMAN-012` | ✅ |
+
 
 *Status Key: ⬜ Pending Implementation | 🟡 In Development | ✅ Verified & Complete*
 

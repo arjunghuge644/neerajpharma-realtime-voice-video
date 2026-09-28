@@ -312,6 +312,72 @@
           }
         }
       ]
+    },
+    {
+      "name": "4. Admin Dashboard",
+      "item": [
+        {
+          "name": "Get Aggregate Call Statistics",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/calls/stats",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admin", "calls", "stats"]
+            }
+          }
+        },
+        {
+          "name": "Get Active Calls List",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/calls/active",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admin", "calls", "active"]
+            }
+          }
+        },
+        {
+          "name": "Get Complete System Call History",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/calls?page=1&limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admin", "calls"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Admin Call Details Inspection",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/calls/{{callSessionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admin", "calls", "{{callSessionId}}"]
+            }
+          }
+        }
+      ]
     }
   ]
 }
+

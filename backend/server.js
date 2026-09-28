@@ -7,6 +7,7 @@ const healthRoutes = require('./src/routes/healthRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 const appointmentRoutes = require('./src/routes/appointmentRoutes');
 const callRoutes = require('./src/routes/callRoutes');
+const adminRoutes = require('./src/routes/adminRoutes');
 const { errorHandler, notFoundHandler } = require('./src/middleware/errorHandler');
 const { initSocketServer } = require('./src/sockets');
 
@@ -31,6 +32,7 @@ app.use(config.apiPrefix, healthRoutes);
 app.use(`${config.apiPrefix}/auth`, authRoutes);
 app.use(`${config.apiPrefix}/appointments`, appointmentRoutes);
 app.use(`${config.apiPrefix}/calls`, callRoutes);
+app.use(`${config.apiPrefix}/admin/calls`, adminRoutes);
 
 // Fallback Handlers
 app.use(notFoundHandler);
