@@ -5,3 +5,7 @@ workspace:
 localResources:
   collections:
     - ../realtime-calling.json
+
+cloudResources:
+  collections:
+    ../postman/collections/NeerajPharma Real-Time Voice & Video Calling Platform: b2655545-bc15-4264-b36a-a101ab72cf83

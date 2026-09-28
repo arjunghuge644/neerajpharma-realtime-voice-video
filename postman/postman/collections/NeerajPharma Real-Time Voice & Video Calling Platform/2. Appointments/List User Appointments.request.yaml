@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{baseUrl}}/api/appointments"
+method: GET
+headers:
+  Authorization: Bearer {{patientToken}}
+scripts:
+  - type: afterResponse
+    code: |-
+      var jsonData = pm.response.json();
+      if (jsonData.success && jsonData.data && jsonData.data.appointments && jsonData.data.appointments.length > 0) {
+          pm.collectionVariables.set('appointmentId', jsonData.data.appointments[0].id);
+          console.log('Saved Appointment ID:', jsonData.data.appointments[0].id);
+      }
+    language: text/javascript
+order: 1000

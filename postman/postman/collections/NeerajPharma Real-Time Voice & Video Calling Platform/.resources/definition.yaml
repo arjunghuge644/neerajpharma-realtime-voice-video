@@ -1,0 +1,9 @@
+$kind: collection
+description: Complete REST API & Socket.IO test collection for NeerajPharma Telemedicine calling backend module.
+variables:
+  baseUrl: http://localhost:5000
+  patientToken: ""
+  doctorToken: ""
+  adminToken: ""
+  appointmentId: ""
+  callSessionId: ""

@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{baseUrl}}/api/appointments/{{appointmentId}}"
+method: GET
+headers:
+  Authorization: Bearer {{patientToken}}
+order: 2000
