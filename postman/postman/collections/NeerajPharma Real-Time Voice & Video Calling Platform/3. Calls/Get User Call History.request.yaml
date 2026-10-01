@@ -1,6 +1,0 @@
-$kind: http-request
-url: "{{baseUrl}}/api/calls/history"
-method: GET
-headers:
-  Authorization: Bearer {{patientToken}}
-order: 5000

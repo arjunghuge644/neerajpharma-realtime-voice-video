@@ -1,6 +1,0 @@
-$kind: http-request
-url: "{{baseUrl}}/api/calls/{{callSessionId}}/end"
-method: POST
-headers:
-  Authorization: Bearer {{patientToken}}
-order: 4000
