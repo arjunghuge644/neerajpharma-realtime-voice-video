@@ -270,6 +270,20 @@
           }
         },
         {
+          "name": "Get ICE Servers Config",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{patientToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/calls/ice-servers",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "calls", "ice-servers"]
+            }
+          }
+        },
+        {
           "name": "Get Call Session Details",
           "request": {
             "method": "GET",
@@ -377,7 +391,125 @@
           }
         }
       ]
+    },
+    {
+      "name": "5. Socket.IO Real-Time Signaling",
+      "item": [
+        {
+          "name": "1. Patient - Emit call:initiate",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event\": \"call:initiate\",\n  \"payload\": {\n    \"appointmentId\": \"{{appointmentId}}\",\n    \"callType\": \"VIDEO\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/socket.io/call:initiate",
+              "host": ["{{baseUrl}}"],
+              "path": ["socket.io", "call:initiate"]
+            },
+            "description": "In Postman Socket.IO connection tab (Patient), emit event 'call:initiate' with this JSON payload."
+          }
+        },
+        {
+          "name": "2. Doctor - Emit call:accept",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event\": \"call:accept\",\n  \"payload\": {\n    \"callSessionId\": \"{{callSessionId}}\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/socket.io/call:accept",
+              "host": ["{{baseUrl}}"],
+              "path": ["socket.io", "call:accept"]
+            },
+            "description": "In Postman Socket.IO connection tab (Doctor), emit event 'call:accept' with this JSON payload."
+          }
+        },
+        {
+          "name": "3. Patient - Emit webrtc:offer",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event\": \"webrtc:offer\",\n  \"payload\": {\n    \"appointmentId\": \"{{appointmentId}}\",\n    \"sdp\": {\n      \"type\": \"offer\",\n      \"sdp\": \"v=0\\r\\nsample_sdp_offer\"\n    }\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/socket.io/webrtc:offer",
+              "host": ["{{baseUrl}}"],
+              "path": ["socket.io", "webrtc:offer"]
+            },
+            "description": "In Postman Socket.IO connection tab (Patient), emit event 'webrtc:offer' with this JSON payload."
+          }
+        },
+        {
+          "name": "4. Doctor - Emit webrtc:answer",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event\": \"webrtc:answer\",\n  \"payload\": {\n    \"appointmentId\": \"{{appointmentId}}\",\n    \"sdp\": {\n      \"type\": \"answer\",\n      \"sdp\": \"v=0\\r\\nsample_sdp_answer\"\n    }\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/socket.io/webrtc:answer",
+              "host": ["{{baseUrl}}"],
+              "path": ["socket.io", "webrtc:answer"]
+            },
+            "description": "In Postman Socket.IO connection tab (Doctor), emit event 'webrtc:answer' with this JSON payload."
+          }
+        },
+        {
+          "name": "5. Peer - Emit webrtc:ice-candidate",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event\": \"webrtc:ice-candidate\",\n  \"payload\": {\n    \"appointmentId\": \"{{appointmentId}}\",\n    \"candidate\": {\n      \"candidate\": \"candidate:123456789 1 udp 2122260223 192.168.1.5 50000 typ host\",\n      \"sdpMid\": \"0\",\n      \"sdpMLineIndex\": 0\n    }\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/socket.io/webrtc:ice-candidate",
+              "host": ["{{baseUrl}}"],
+              "path": ["socket.io", "webrtc:ice-candidate"]
+            },
+            "description": "In Postman Socket.IO connection tab, emit event 'webrtc:ice-candidate' with this JSON payload."
+          }
+        },
+        {
+          "name": "6. Either Peer - Emit call:end",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event\": \"call:end\",\n  \"payload\": {\n    \"callSessionId\": \"{{callSessionId}}\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/socket.io/call:end",
+              "host": ["{{baseUrl}}"],
+              "path": ["socket.io", "call:end"]
+            },
+            "description": "In Postman Socket.IO connection tab, emit event 'call:end' with this JSON payload."
+          }
+        }
+      ]
     }
   ]
 }
-
