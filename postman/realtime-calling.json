@@ -6,12 +6,36 @@
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
-    { "key": "baseUrl", "value": "http://localhost:5000", "type": "string" },
-    { "key": "patientToken", "value": "", "type": "string" },
-    { "key": "doctorToken", "value": "", "type": "string" },
-    { "key": "adminToken", "value": "", "type": "string" },
-    { "key": "appointmentId", "value": "", "type": "string" },
-    { "key": "callSessionId", "value": "", "type": "string" }
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "patientToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "doctorToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "adminToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "appointmentId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "callSessionId",
+      "value": "",
+      "type": "string"
+    }
   ],
   "item": [
     {
@@ -22,7 +46,10 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
@@ -30,8 +57,14 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/auth/register",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "auth", "register"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
             }
           }
         },
@@ -55,7 +88,10 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
@@ -63,8 +99,14 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/auth/login",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "auth", "login"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
             }
           }
         },
@@ -88,7 +130,10 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
@@ -96,8 +141,14 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/auth/login",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "auth", "login"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
             }
           }
         },
@@ -121,7 +172,10 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
@@ -129,8 +183,14 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/auth/login",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "auth", "login"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
             }
           }
         },
@@ -139,12 +199,21 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{patientToken}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{patientToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/auth/me",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "auth", "me"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
             }
           }
         }
@@ -173,12 +242,20 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{patientToken}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{patientToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/appointments",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "appointments"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "appointments"
+              ]
             }
           }
         },
@@ -187,12 +264,21 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{patientToken}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{patientToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/appointments/{{appointmentId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "appointments", "{{appointmentId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "appointments",
+                "{{appointmentId}}"
+              ]
             }
           }
         }
@@ -221,8 +307,14 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{patientToken}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{patientToken}}"
+              }
             ],
             "body": {
               "mode": "raw",
@@ -230,8 +322,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/calls",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "calls"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "calls"
+              ]
             }
           }
         },
@@ -255,8 +352,14 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{patientToken}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{patientToken}}"
+              }
             ],
             "body": {
               "mode": "raw",
@@ -264,8 +367,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/calls",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "calls"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "calls"
+              ]
             }
           }
         },
@@ -274,12 +382,21 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{patientToken}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{patientToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/calls/ice-servers",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "calls", "ice-servers"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "calls",
+                "ice-servers"
+              ]
             }
           }
         },
@@ -288,12 +405,21 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{patientToken}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{patientToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/calls/{{callSessionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "calls", "{{callSessionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "calls",
+                "{{callSessionId}}"
+              ]
             }
           }
         },
@@ -302,12 +428,22 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{patientToken}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{patientToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/calls/{{callSessionId}}/end",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "calls", "{{callSessionId}}", "end"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "calls",
+                "{{callSessionId}}",
+                "end"
+              ]
             }
           }
         },
@@ -316,12 +452,21 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{patientToken}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{patientToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/calls/history",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "calls", "history"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "calls",
+                "history"
+              ]
             }
           }
         }
@@ -335,12 +480,22 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/admin/calls/stats",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "admin", "calls", "stats"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "calls",
+                "stats"
+              ]
             }
           }
         },
@@ -349,12 +504,22 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/admin/calls/active",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "admin", "calls", "active"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "calls",
+                "active"
+              ]
             }
           }
         },
@@ -363,15 +528,30 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/admin/calls?page=1&limit=10",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "admin", "calls"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "calls"
+              ],
               "query": [
-                { "key": "page", "value": "1" },
-                { "key": "limit", "value": "10" }
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
               ]
             }
           }
@@ -381,12 +561,22 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/admin/calls/{{callSessionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "admin", "calls", "{{callSessionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "calls",
+                "{{callSessionId}}"
+              ]
             }
           }
         }
@@ -400,7 +590,10 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
@@ -408,8 +601,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/socket.io/call:initiate",
-              "host": ["{{baseUrl}}"],
-              "path": ["socket.io", "call:initiate"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "socket.io",
+                "call:initiate"
+              ]
             },
             "description": "In Postman Socket.IO connection tab (Patient), emit event 'call:initiate' with this JSON payload."
           }
@@ -419,7 +617,10 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
@@ -427,8 +628,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/socket.io/call:accept",
-              "host": ["{{baseUrl}}"],
-              "path": ["socket.io", "call:accept"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "socket.io",
+                "call:accept"
+              ]
             },
             "description": "In Postman Socket.IO connection tab (Doctor), emit event 'call:accept' with this JSON payload."
           }
@@ -438,7 +644,10 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
@@ -446,8 +655,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/socket.io/webrtc:offer",
-              "host": ["{{baseUrl}}"],
-              "path": ["socket.io", "webrtc:offer"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "socket.io",
+                "webrtc:offer"
+              ]
             },
             "description": "In Postman Socket.IO connection tab (Patient), emit event 'webrtc:offer' with this JSON payload."
           }
@@ -457,7 +671,10 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
@@ -465,8 +682,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/socket.io/webrtc:answer",
-              "host": ["{{baseUrl}}"],
-              "path": ["socket.io", "webrtc:answer"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "socket.io",
+                "webrtc:answer"
+              ]
             },
             "description": "In Postman Socket.IO connection tab (Doctor), emit event 'webrtc:answer' with this JSON payload."
           }
@@ -476,7 +698,10 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
@@ -484,8 +709,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/socket.io/webrtc:ice-candidate",
-              "host": ["{{baseUrl}}"],
-              "path": ["socket.io", "webrtc:ice-candidate"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "socket.io",
+                "webrtc:ice-candidate"
+              ]
             },
             "description": "In Postman Socket.IO connection tab, emit event 'webrtc:ice-candidate' with this JSON payload."
           }
@@ -495,7 +725,10 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
@@ -503,8 +736,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/socket.io/call:end",
-              "host": ["{{baseUrl}}"],
-              "path": ["socket.io", "call:end"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "socket.io",
+                "call:end"
+              ]
             },
             "description": "In Postman Socket.IO connection tab, emit event 'call:end' with this JSON payload."
           }

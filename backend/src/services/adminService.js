@@ -18,7 +18,7 @@ const getCallStatistics = async () => {
   ] = await Promise.all([
     prisma.callSession.count(),
     prisma.callSession.count({
-      where: { status: { in: ['INITIATED', 'RINGING', 'ACCEPTED', 'ONGOING'] } },
+      where: { status: { in: ['INITIATED', 'RINGING', 'ACCEPTED', 'CONNECTED', 'ONGOING'] } },
     }),
     prisma.callSession.count({ where: { status: 'COMPLETED' } }),
     prisma.callSession.count({ where: { status: 'REJECTED' } }),
@@ -62,7 +62,7 @@ const getActiveCalls = async () => {
   const activeSessions = await prisma.callSession.findMany({
     where: {
       status: {
-        in: ['INITIATED', 'RINGING', 'ACCEPTED', 'ONGOING'],
+        in: ['INITIATED', 'RINGING', 'ACCEPTED', 'CONNECTED', 'ONGOING'],
       },
     },
     include: {

@@ -39,7 +39,7 @@ const initiateCallSession = async ({ appointmentId, callType, callerId }) => {
         { doctorId: appointment.doctorId },
       ],
       status: {
-        in: ['INITIATED', 'RINGING', 'ACCEPTED', 'ONGOING'],
+        in: ['INITIATED', 'RINGING', 'ACCEPTED', 'CONNECTED', 'ONGOING'],
       },
     },
   });
