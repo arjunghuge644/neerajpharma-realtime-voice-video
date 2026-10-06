@@ -33,6 +33,17 @@ router.get('/', authenticate, callController.listHistory);
 router.post('/:id/end', authenticate, callController.end);
 
 /**
+ * @route   GET /api/calls/ice-servers
+ * @desc    Get STUN/TURN ICE servers configuration
+ * @access  Private
+ */
+router.get(
+  '/ice-servers',
+  authenticate,
+  callController.getIceServers
+);
+
+/**
  * @route   GET /api/calls/:id
  * @desc    Get details of a specific call session
  * @access  Private (Assigned Participants or Admin)
